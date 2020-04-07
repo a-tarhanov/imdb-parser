@@ -39,7 +39,8 @@ class ParseImdbCommand extends Command
         try {
             ParseImdbJob::dispatchNow($id);
         } catch (\Exception $exception) {
-
+            $this->error($exception->getMessage());
+            return;
         }
 
         $this->info("Success parsing film #{$id}");

@@ -18,4 +18,22 @@ class Film extends Model implements HasMedia
         'category',
         'director',
     ];
+
+    protected $casts = [
+        'category' => 'array'
+    ];
+
+    protected $appends = [
+        'image'
+    ];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('image')->singleFile();
+    }
+
+    public function getImageAttribute()
+    {
+        return $this->getFirstMediaUrl('image');
+    }
 }

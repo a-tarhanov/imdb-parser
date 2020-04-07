@@ -18,8 +18,8 @@ class CreateFilmsTable extends Migration
             $table->string('imdb_id')->unique();
             $table->string('title');
             $table->date('release_date');
-            $table->float('rating');
-            $table->string('category');
+            $table->float('rating')->nullable();
+            $table->json('category');
             $table->string('director');
             $table->timestamps();
         });
