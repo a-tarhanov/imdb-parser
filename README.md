@@ -11,11 +11,15 @@ cd imdb-parser
 
 Copy .env.example to .env
 
+Copy docker/mysql/init/createdb.sql.example to docker/mysql/init/createdb.sql
+
 ```bash
 docker-compose up --build -d
 ```
 
 ## Install App
+
+Copy app/.env.example to app/.env
 
 ```bash
 docker-compose exec php bash
